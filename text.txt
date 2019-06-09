@@ -1,0 +1,7 @@
+FULL NAME: MICHAEL KOFI BADU					                                                   
+STUDENT ID:  S1719029
+Username: MKOFIB200
+
+In order to make the website more engaging, 
+I used JavaScripts for the navigations of the homepage so that the user can 
+interact with the website.

@@ -1,0 +1,16 @@
+.text {
+	font-size: 2rem;
+	padding: 2rem 0;
+	-moz-columns: 3;
+	-webkit-columns: 3;
+	columns: 3;
+}
+.text p {
+	margin-bottom: 2rem;
+}
+.footer P{
+	color:#DAA520;
+	text-align: center;
+	padding: 10px;
+	font-size: 16px;
+}

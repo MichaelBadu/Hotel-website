@@ -1,0 +1,200 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Spartanomia = Spartanomia Hostel</title>
+<link rel="stylesheet" type= "text/css" href= "CSS.css"/>
+</head>
+<body>
+<center><img src =" C:\Users\Student\Desktop\MKOFIB200\Spartan-Logo-1_Easy-Resize.com.jpg" width ="50px" height = "50px"></center>
+<div class="main">
+  <header>
+    <ul>
+      <li><h1 style="color:olive;">Home</h1></li>
+      <li><a href="offer.html">Offers</a></li>
+      <li><a href="Facilities.html">Facilities</a></li>
+      <li><a href="News and Events.html">News & Events</a></li>
+      <li><a href="Wellness.html">Wellness</a></li>
+      <li><a href="Contact.html">Contacts</a></li>
+    </ul>
+  </header>
+  <div class="cd-slider">
+    <ul>
+      <li>
+        <div class="image" style="background-image:url(https://www.trumphotels.com/uploads/13169/0/macallan_room.jpg);"></div>
+        <div class="content">
+          <h2>Rooms</h2>
+          
+        </div>
+      </li>
+      <li>
+        <div class="image" style="background-image:url(https://images.pexels.com/photos/27308/pexels-photo-27308.jpg?w=940&h=650&auto=compress&cs=tinysrgb);"></div>
+        <div class="content">
+          <h2>Services</h2>
+          
+        </div>
+      </li>
+      <li>
+        <div class="image" style="background-image:url(https://static.pexels.com/photos/5938/food-salad-healthy-lunch.jpg);"></div>
+        <div class="content">
+          <h2>Food</h2>
+      </div>
+      </li>
+      <li>
+        <div class="image" style="background-image:url(https://static.pexels.com/photos/57798/pexels-photo-57798.jpeg);"></div>
+        <div class="content">
+          <h2>Arts</h2>
+          
+        </div>
+      </li>
+      <li>
+        <div class="image" style="background-image:url(https://static.pexels.com/photos/3192/woman-girl-beauty-mask.jpg);"></div>
+        <div class="content">
+          <h2>Spa</h2>
+          
+        </div>
+      </li>      
+    </ul>
+  </div> <!--cd-slider-->
+  
+  <div class="text">
+    <p style="color:olive;">Your home in Saudi Arabia  - The exclusive rooms of  the Spartanomia Hostel is tastefully decorated with the latest in 
+   luxury amenities providing the comfort expected of luxurious hotel.</p>
+    <p style="color:olive;">Enjoy a unique location at the modern Spartanomia hostel, midway between King Khaled International Airport and Riyadh city centre.</p>
+    <p style="color:olive;">Guests have access to the rooftop pool offering a panoramic city and Arabian Gulf views.</p>
+    <p style="color:olive;">And the fully equipped fitness centre as well as a tennis court.</p>
+    <p style="color:olive;">A wellness centre which includes a sauna, a hot tub and a steam room is also available.</p>
+    <p style="color:olive;">The Spartanomia Grand Spa offers a wide range of body treatments and facials. Book online to avail the Free Wi-Fi.</p>
+    <p style="color:olive;">Enjoy home cooked meals at our world class restaurants, and the famous Arabic shesha, also well known as hubbly bubbly is served either on the rooftop lounge or in the garden. </p>
+    <p style="color:olive;">Area relax with your favorite beverage at the roof top terrace.</p>
+    <p style="color:olive;">It's a 15-minute taxi drive from the airport to our low-rise hostel set around 2 outdoor pools in a peaceful residential neighborhood.</p>
+    <p style="color:olive;">Make use of our extensive meeting facilities, and just minutes from commercial headquarters including SABIC and AL MARAI. Your air-conditioned guest room at Spartanomiais a comfortable home from home with complimentary wireless Internet, tea and coffee.</p>
+  </div>
+  <script>
+  (function() {
+
+  function init(item) {
+    var items = item.querySelectorAll('li'),
+      current = 0;
+
+    //the navigation 
+    var nav = document.createElement('nav');
+    nav.className = 'nav_arrows';
+
+    //the prev button
+    var prevbtn = document.createElement('button');
+    prevbtn.className = 'prev';
+    prevbtn.setAttribute('aria-label', 'Prev');
+
+    //the next button
+    var nextbtn = document.createElement('button');
+    nextbtn.className = 'next';
+    nextbtn.setAttribute('aria-label', 'Next');
+
+    //counter
+    var counter = document.createElement('div');
+    counter.className = 'counter';
+    counter.innerHTML = "<span>1</span><span>"+items.length+"</span>";
+
+    if (items.length > 1) {
+      nav.appendChild(prevbtn);
+      nav.appendChild(counter);
+      nav.appendChild(nextbtn);
+      item.appendChild(nav);
+    }
+
+    items[current].className = "current";
+    if (items.length > 1) items[items.length-1].className = "prev_slide";
+
+    var navigate = function(dir) {
+      items[current].className = "";
+
+      if (dir === 'right') {
+        current = current < items.length-1 ? current + 1 : 0;
+      } else {
+        current = current > 0 ? current - 1 : items.length-1;
+      }
+
+      var nextCurrent = current < items.length-1 ? current + 1 : 0,
+        prevCurrent = current > 0 ? current - 1 : items.length-1;
+
+      items[current].className = "current";
+      items[prevCurrent].className = "prev_slide";
+      items[nextCurrent].className = "";
+
+      //the updated counter
+      counter.firstChild.textContent = current + 1;
+    }
+
+    prevbtn.addEventListener('click', function() {
+      navigate('left');
+    });
+
+    nextbtn.addEventListener('click', function() {
+      navigate('right');
+    });
+
+    //this is the keyboard navigation
+    document.addEventListener('keydown', function(ev) {
+      var keyCode = ev.keyCode || ev.which;
+      switch (keyCode) {
+        case 37:
+          navigate('left');
+          break;
+        case 39:
+          navigate('right');
+          break;
+      }
+    });
+
+    // the swipe navigation
+    
+    item.addEventListener('touchstart', handleTouchStart, false);        
+    item.addEventListener('touchmove', handleTouchMove, false);
+    var xDown = null;
+    var yDown = null;
+    function handleTouchStart(evt) {
+      xDown = evt.touches[0].clientX;
+      yDown = evt.touches[0].clientY;
+    };
+    function handleTouchMove(evt) {
+      if ( ! xDown || ! yDown ) {
+        return;
+      }
+
+      var xUp = evt.touches[0].clientX;
+      var yUp = evt.touches[0].clientY;
+
+      var xDiff = xDown - xUp;
+      var yDiff = yDown - yUp;
+
+      if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+        if ( xDiff > 0 ) {
+          
+          navigate('right');
+        } else {
+          navigate('left');
+        }
+      } 
+      
+      xDown = null;
+      yDown = null;
+    };
+
+
+  }
+
+  [].slice.call(document.querySelectorAll('.cd-slider')).forEach( function(item) {
+    init(item);
+  });
+
+})();
+
+  </script>
+</div>
+<div class = "footer">
+<p>
+  &copy Michael Kofi Badu 2017. All rights Reserved.
+</p>
+</div>
+</body>
+</html>
